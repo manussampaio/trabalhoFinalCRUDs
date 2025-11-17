@@ -2,17 +2,29 @@ import {Emprestimos} from "../models/emprestimos.js";
 
 //get
 const buscarEmprestimos = async (req, res) => {
-    const response = await Emprestimos.find()
-    console.log('Buscando Emprestimos')
-    res.json(response)
+    try{
+        const response = await Emprestimos.find()
+        console.log('Buscando Emprestimos')
+        res.json(response)
+    } catch {
+        (err) => {
+            res.send('Erro ao buscar emprestimo!')
+        } 
+    }
 }
 
 //get com id 
 const buscarEmprestimosPorID = async (req, res) => {
+    try{
     const {id} = req.params
     const response = await Emprestimos.findById(id)
     console.log('Buscando Emprestimos por ID')
     res.json(response)
+    } catch {
+        (err) => {
+            res.send('Erro ao buscar emprestimo por ID!')
+        } 
+    }
 }
 
 //post

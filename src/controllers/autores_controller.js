@@ -2,17 +2,29 @@ import {Autores} from "../models/autores.js";
 
 //get
 const buscarAutores = async (req, res) => {
+    try{
     const response = await Autores.find()
     console.log('Buscando Autores')
     res.json(response)
+    } catch {
+        (err) => {
+            res.send('Erro ao buscar autores!')
+        } 
+    }
 }
 
 //get com id 
 const buscarAutoresPorID = async (req, res) => {
-    const {id} = req.params
-    const response = await Autores.findById(id)
-    console.log('Buscando Autores')
-    res.json(response)
+    try{
+        const {id} = req.params
+        const response = await Autores.findById(id)
+        console.log('Buscando Autores')
+        res.json(response)
+    } catch {
+        (err) => {
+            res.send('Erro ao buscar autores por ID!')
+        } 
+    }
 }
 
 //post

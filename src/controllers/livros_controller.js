@@ -2,17 +2,29 @@ import {Livros} from "../models/livros.js";
 
 //get
 const buscarLivro = async (req, res) => {
+    try{
     const response = await Livros.find()
     console.log('Buscando Livros')
     res.json(response)
+    } catch {
+        (err) => {
+            res.send('Erro ao buscar livro!')
+        } 
+    }
 }
 
 //get com id 
 const buscarLivroPorID = async (req, res) => {
+    try{
     const {id} = req.params
     const response = await Livros.findById(id)
     console.log('Buscando Livros')
     res.json(response)
+    } catch {
+        (err) => {
+            res.send('Erro ao buscar livro por ID!')
+        } 
+    }
 }
 
 //post

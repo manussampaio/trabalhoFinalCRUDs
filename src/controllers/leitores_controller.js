@@ -2,17 +2,29 @@ import {Leitores} from "../models/leitores.js";
 
 //get
 const buscarLeitores = async (req, res) => {
-    const response = await Leitores.find()
-    console.log('Buscando Leitores')
-    res.json(response)
+    try{
+        const response = await Leitores.find()
+        console.log('Buscando Leitores')
+        res.json(response)
+    } catch {
+        (err) => {
+            res.send('Erro ao buscar leitores!')
+        } 
+    }
 }
 
 //get com id 
 const buscarLeitoresPorID = async (req, res) => {
-    const {id} = req.params
-    const response = await Leitores.findById(id)
-    console.log('Buscando Leitores por ID')
-    res.json(response)
+    try{
+        const {id} = req.params
+        const response = await Leitores.findById(id)
+        console.log('Buscando Leitores por ID')
+        res.json(response)
+    } catch {
+        (err) => {
+            res.send('Erro ao buscar leitores por ID!')
+        } 
+    }
 }
 
 //post
