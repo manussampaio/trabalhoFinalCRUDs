@@ -6,6 +6,6 @@ const autoresSchema = new Schema({
     dataNascimento: {type: Date, required: true}
 })
 
-const Autores = model('Autores', autoresSchemasSchema)
+const Autores = model('Autores', autoresSchema)
 
 export {Autores}

@@ -5,8 +5,6 @@ const leitoresSchema = new Schema({
     email: {type: String, required: true},
     telefone: {type: Number, required: true},
     endereco: {type: String, required: true},
-    cidade: {type: String, required: true},
-    uf: {type: String, required: true},
     dataNascimento: {type: Date, required: true}
 })
 
